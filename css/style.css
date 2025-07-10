@@ -1,0 +1,135 @@
+/* General Styles */
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #2e59d9;
+    --dark-color: #5a5c69;
+    --light-color: #f8f9fc;
+}
+
+body {
+    background-color: var(--light-color);
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Carousel Styles */
+.carousel {
+    height: 100%;
+}
+
+.carousel-inner, .carousel-item {
+    height: 100%;
+}
+
+.carousel-img-1, .carousel-img-2, .carousel-img-3 {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.carousel-img-1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                      url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+.carousel-img-2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                      url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+.carousel-img-3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                      url('https://images.unsplash.com/photo-1445205170230-053b83016042?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+.carousel-caption {
+    bottom: 30%;
+}
+
+/* Form Styles */
+.form-control, .form-control:focus {
+    padding: 0.75rem 1rem;
+    border-radius: 0.35rem;
+    border: 1px solid #d1d3e2;
+}
+
+.form-control:focus {
+    border-color: #bac8f3;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+.input-group-text {
+    background-color: #eaecf4;
+    border: 1px solid #d1d3e2;
+    color: #6e707e;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Toggle Password Button */
+.toggle-password {
+    background-color: #f8f9fc;
+    border: 1px solid #d1d3e2;
+    border-left: none;
+    cursor: pointer;
+}
+
+.toggle-password:hover {
+    background-color: #e2e6ea;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .min-vh-100 {
+        min-height: auto !important;
+    }
+    
+    .col-md-6 {
+        padding: 2rem !important;
+    }
+    
+    .carousel {
+        height: 300px;
+    }
+}
+
+/* Form Validation */
+.was-validated .form-control:invalid, 
+.form-control.is-invalid {
+    border-color: #e74a3b;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: none;
+}
+
+.was-validated .form-control:invalid:focus, 
+.form-control.is-invalid:focus {
+    border-color: #e74a3b;
+    box-shadow: 0 0 0 0.2rem rgba(231, 74, 59, 0.25);
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #e74a3b;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .form-control:invalid ~ .invalid-tooltip,
+.form-control.is-invalid ~ .invalid-feedback,
+.form-control.is-invalid ~ .invalid-tooltip {
+    display: block;
+}
