@@ -496,3 +496,70 @@ body {
         display: none;
     }
 }
+
+/* Accordion Menu Styles */
+.accordion-item {
+    background: transparent;
+}
+
+.accordion-header .menu-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+    font-size: 12px;
+}
+
+.accordion-collapse.show + .accordion-header .accordion-icon,
+[aria-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-body {
+    padding-left: 15px;
+}
+
+.submenu-item {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.submenu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+.submenu-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Fix for accordion arrows in sidebar */
+.accordion-collapse {
+    transition: height 0.3s ease;
+}
+
+/* Customer image styles */
+.customer-image-container {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer-image-preview {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}

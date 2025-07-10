@@ -84,16 +84,50 @@
                     </div>
                     <span class="ms-2">Categories</span>
                 </a>
-                <a href="{{ route('admin.brands.index') }}" class="menu-item d-flex align-items-center mb-3">
-                    <div class="icon-box d-flex align-items-center justify-content-center">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 4H17C18.1046 4 19 4.89543 19 6V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V6C5 4.89543 5.89543 4 7 4H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M15 4C15 4.55228 14.5523 5 14 5H10C9.44772 5 9 4.55228 9 4C9 2.89543 9.89543 2 11 2H13C14.1046 2 15 2.89543 15 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 10L9 14H15L12 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                <!-- Setups Accordion Menu -->
+                <div class="accordion-item mb-3 border-0">
+                    <div class="accordion-header">
+                        <button class="menu-item d-flex align-items-center w-100 bg-transparent border-0 text-start p-0" type="button" data-bs-toggle="collapse" data-bs-target="#setupsSubmenu" aria-expanded="false" aria-controls="setupsSubmenu">
+                            <div class="icon-box d-flex align-items-center justify-content-center">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 3H21V9H3V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 15H21V21H3V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 9V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="ms-2">Setups</span>
+                            <i class="fas fa-chevron-down ms-auto accordion-icon"></i>
+                        </button>
                     </div>
-                    <span class="ms-2">Brands</span>
-                </a>
+                    <div id="setupsSubmenu" class="accordion-collapse collapse">
+                        <div class="accordion-body p-0 pt-2 ps-4">
+                            <a href="{{ route('admin.categories.index') }}" class="submenu-item d-flex align-items-center mb-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 4H5C4.44772 4 4 4.44772 4 5V9C4 9.55228 4.44772 10 5 10H9C9.55228 10 10 9.55228 10 9V5C10 4.44772 9.55228 4 9 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M19 4H15C14.4477 4 14 4.44772 14 5V9C14 9.55228 14.4477 10 15 10H19C19.5523 10 20 9.55228 20 9V5C20 4.44772 19.5523 4 19 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 14H5C4.44772 14 4 14.4477 4 15V19C4 19.5523 4.44772 20 5 20H9C9.55228 20 10 19.5523 10 19V15C10 14.4477 9.55228 14 9 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M19 14H15C14.4477 14 14 14.4477 14 15V19C14 19.5523 14.4477 20 15 20H19C19.5523 20 20 19.5523 20 19V15C20 14.4477 19.5523 14 19 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="ms-2">Categories</span>
+                            </a>
+                            <a href="{{ route('admin.brands.index') }}" class="submenu-item d-flex align-items-center mb-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 4H17C18.1046 4 19 4.89543 19 6V18C19 19.1046 18.1046 20 17 20H7C5.89543 20 5 19.1046 5 18V6C5 4.89543 5.89543 4 7 4H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 4C15 4.55228 14.5523 5 14 5H10C9.44772 5 9 4.55228 9 4C9 2.89543 9.89543 2 11 2H13C14.1046 2 15 2.89543 15 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 10L9 14H15L12 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="ms-2">Brands</span>
+                            </a>
+                            <a href="{{ route('admin.customers.index') }}" class="submenu-item d-flex align-items-center mb-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="ms-2">Customers</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <a href="#" class="menu-item d-flex align-items-center mb-3">
                     <div class="icon-box d-flex align-items-center justify-content-center">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

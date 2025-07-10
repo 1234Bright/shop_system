@@ -51,4 +51,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     // Brand management routes
     Route::resource('brands', \App\Http\Controllers\Admin\BrandController::class);
+    
+    // Customer management routes
+    Route::resource('customers', \App\Http\Controllers\Admin\CustomerController::class);
 });
