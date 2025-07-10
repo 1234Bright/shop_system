@@ -54,4 +54,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     // Customer management routes
     Route::resource('customers', \App\Http\Controllers\Admin\CustomerController::class);
+    
+    // Supplier management routes
+    Route::resource('suppliers', \App\Http\Controllers\Admin\SupplierController::class);
 });
