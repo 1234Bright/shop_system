@@ -57,4 +57,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     // Supplier management routes
     Route::resource('suppliers', \App\Http\Controllers\Admin\SupplierController::class);
+    
+    // Size management routes
+    Route::resource('sizes', \App\Http\Controllers\Admin\SizeController::class);
 });

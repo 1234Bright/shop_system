@@ -37,7 +37,6 @@
                 <table class="table table-hover align-middle mb-0">
                     <thead class="bg-light">
                         <tr>
-                            <th style="width: 60px;">ID</th>
                             <th style="width: 70px;">Photo</th>
                             <th>Name</th>
                             <th>Address</th>
@@ -49,7 +48,6 @@
                     <tbody id="supplierTableBody">
                         @forelse($suppliers as $supplier)
                         <tr class="supplier-row">
-                            <td>{{ $supplier->id }}</td>
                             <td>
                                 @if($supplier->picture)
                                     <img src="{{ asset('storage/' . $supplier->picture) }}" alt="{{ $supplier->name }}" class="rounded-circle" width="50" height="50" style="object-fit: cover;">
@@ -98,7 +96,7 @@
                         </div>
                         @empty
                         <tr>
-                            <td colspan="7" class="text-center py-4">No suppliers found</td>
+                            <td colspan="6" class="text-center py-4">No suppliers found</td>
                         </tr>
                         @endforelse
                     </tbody>
@@ -229,10 +227,10 @@
             const searchTerm = this.value.toLowerCase();
             
             supplierRows.forEach(row => {
-                const name = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
-                const address = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
-                const phone1 = row.querySelector('td:nth-child(5)').textContent.toLowerCase();
-                const phone2 = row.querySelector('td:nth-child(6)').textContent.toLowerCase();
+                const name = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const address = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                const phone1 = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+                const phone2 = row.querySelector('td:nth-child(5)').textContent.toLowerCase();
                 
                 if (name.includes(searchTerm) || 
                     address.includes(searchTerm) || 
