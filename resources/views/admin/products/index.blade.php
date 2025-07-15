@@ -73,13 +73,16 @@
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-sm btn-outline-info">
+                                    <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-sm btn-outline-info" title="View">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-outline-primary">
+                                    <a href="{{ route('admin.products.details.index', $product->id) }}" class="btn btn-sm btn-outline-secondary" title="Manage Variants">
+                                        <i class="fas fa-list-alt"></i>
+                                    </a>
+                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-outline-primary" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteProductModal{{ $product->id }}">
+                                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteProductModal{{ $product->id }}" title="Delete">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>

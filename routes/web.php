@@ -63,4 +63,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     // Product management routes
     Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+    
+    // Product details management routes (nested)
+    Route::get('products/{product}/details', [\App\Http\Controllers\Admin\ProductDetailController::class, 'index'])->name('products.details.index');
+    Route::get('products/{product}/details/create', [\App\Http\Controllers\Admin\ProductDetailController::class, 'create'])->name('products.details.create');
+    Route::post('products/{product}/details', [\App\Http\Controllers\Admin\ProductDetailController::class, 'store'])->name('products.details.store');
+    Route::get('products/{product}/details/{detail}/edit', [\App\Http\Controllers\Admin\ProductDetailController::class, 'edit'])->name('products.details.edit');
+    Route::put('products/{product}/details/{detail}', [\App\Http\Controllers\Admin\ProductDetailController::class, 'update'])->name('products.details.update');
+    Route::delete('products/{product}/details/{detail}', [\App\Http\Controllers\Admin\ProductDetailController::class, 'destroy'])->name('products.details.destroy');
 });

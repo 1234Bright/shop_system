@@ -40,4 +40,12 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+    
+    /**
+     * Get the details for this product.
+     */
+    public function details()
+    {
+        return $this->hasMany(ProductDetail::class);
+    }
 }

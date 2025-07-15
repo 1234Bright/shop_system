@@ -7,6 +7,9 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="page-title mb-0">Product Details</h1>
         <div>
+            <a href="{{ route('admin.products.details.index', $product->id) }}" class="btn btn-info me-2">
+                <i class="fas fa-list-alt me-2"></i>Manage Variants
+            </a>
             <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary me-2">
                 <i class="fas fa-edit me-2"></i>Edit Product
             </a>
@@ -76,7 +79,7 @@
                 </div>
             </div>
             
-            <div class="card shadow-sm">
+            <div class="card shadow-sm mb-4">
                 <div class="card-header bg-white py-3">
                     <h5 class="card-title mb-0">Description</h5>
                 </div>
@@ -85,6 +88,56 @@
                         {!! nl2br(e($product->description)) !!}
                     @else
                         <p class="text-muted mb-0">No description provided.</p>
+                    @endif
+                </div>
+            </div>
+            
+            <!-- Product Variants Section -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Product Variants</h5>
+                    <a href="{{ route('admin.products.details.create', $product->id) }}" class="btn btn-sm btn-primary">
+                        <i class="fas fa-plus me-1"></i>Add Variant
+                    </a>
+                </div>
+                <div class="card-body p-0">
+                    @if($product->details->count() > 0)
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="bg-light">
+                                    <tr>
+                                        <th>Variant Code</th>
+                                        <th>Size</th>
+                                        <th>Color</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($product->details as $detail)
+                                    <tr>
+                                        <td><span class="badge bg-light text-dark">{{ $detail->product_code }}</span></td>
+                                        <td>{{ $detail->size->name ?? 'N/A' }}</td>
+                                        <td>{{ $detail->color ?? 'N/A' }}</td>
+                                        <td>{{ $detail->quantity }}</td>
+                                        <td>${{ number_format($detail->price, 2) }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="px-3 py-2 text-end">
+                            <a href="{{ route('admin.products.details.index', $product->id) }}" class="btn btn-sm btn-link">
+                                Manage all variants <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    @else
+                        <div class="p-4 text-center">
+                            <p class="text-muted mb-3">No variants have been added for this product.</p>
+                            <a href="{{ route('admin.products.details.create', $product->id) }}" class="btn btn-outline-primary">
+                                <i class="fas fa-plus me-1"></i>Add First Variant
+                            </a>
+                        </div>
                     @endif
                 </div>
             </div>
