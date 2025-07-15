@@ -60,4 +60,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     // Size management routes
     Route::resource('sizes', \App\Http\Controllers\Admin\SizeController::class);
+    
+    // Product management routes
+    Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
 });
