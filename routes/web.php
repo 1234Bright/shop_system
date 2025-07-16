@@ -61,8 +61,17 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // Size management routes
     Route::resource('sizes', \App\Http\Controllers\Admin\SizeController::class);
     
+    // Currency management routes
+    Route::resource('currencies', \App\Http\Controllers\Admin\CurrencyController::class);
+    // We use just 'currencies.set-default' as the name since the admin. prefix gets added automatically by the group
+    Route::post('currencies/{currency}/set-default', [\App\Http\Controllers\Admin\CurrencyController::class, 'setDefault'])->name('currencies.set-default');
+    
     // Product management routes
     Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+    
+    // System settings routes
+    Route::get('settings', [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings.index');
+    Route::post('settings', [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
     
     // Product details management routes (nested)
     Route::get('products/{product}/details', [\App\Http\Controllers\Admin\ProductDetailController::class, 'index'])->name('products.details.index');

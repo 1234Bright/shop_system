@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Currency;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -19,7 +20,8 @@ class ProductController extends Controller
         $products = Product::with(['category', 'brand'])->latest()->get();
         $categories = Category::all();
         $brands = Brand::all();
-        return view('admin.products.index', compact('products', 'categories', 'brands'));
+        $defaultCurrency = Currency::where('is_default', true)->first();
+        return view('admin.products.index', compact('products', 'categories', 'brands', 'defaultCurrency'));
     }
 
     /**
@@ -29,7 +31,8 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $brands = Brand::all();
-        return view('admin.products.create', compact('categories', 'brands'));
+        $defaultCurrency = Currency::where('is_default', true)->first();
+        return view('admin.products.create', compact('categories', 'brands', 'defaultCurrency'));
     }
 
     /**
@@ -73,12 +76,12 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
-        $product = Product::findOrFail($id);
         $categories = Category::all();
         $brands = Brand::all();
-        return view('admin.products.edit', compact('product', 'categories', 'brands'));
+        $defaultCurrency = Currency::where('is_default', true)->first();
+        return view('admin.products.edit', compact('product', 'categories', 'brands', 'defaultCurrency'));
     }
 
     /**

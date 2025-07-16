@@ -66,7 +66,7 @@
                                 <div class="mb-3">
                                     <label for="price" class="form-label">Price <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">{{ $defaultCurrency->symbol ?? '$' }}</span>
                                         <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price', $product->price) }}" step="0.01" min="0" required>
                                         @error('price')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -87,7 +87,7 @@
                                 <div class="mb-3">
                                     <label for="cost" class="form-label">Cost</label>
                                     <div class="input-group">
-                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">{{ $defaultCurrency->symbol ?? '$' }}</span>
                                         <input type="number" class="form-control @error('cost') is-invalid @enderror" id="cost" name="cost" value="{{ old('cost', $product->cost) }}" step="0.01" min="0">
                                         @error('cost')
                                             <div class="invalid-feedback">{{ $message }}</div>

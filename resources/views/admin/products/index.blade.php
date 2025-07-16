@@ -88,7 +88,7 @@
                             <td>{{ $product->name }}</td>
                             <td data-category-id="{{ $product->category_id }}">{{ $product->category->name ?? 'N/A' }}</td>
                             <td data-brand-id="{{ $product->brand_id }}">{{ $product->brand->name ?? 'N/A' }}</td>
-                            <td>${{ number_format($product->price, 2) }}</td>
+                            <td>{{ $defaultCurrency->symbol ?? '$' }}{{ number_format($product->price, 2) }}</td>
                             <td>{{ number_format($product->quantity) }}</td>
                             <td>
                                 @if($product->status == 'active')
@@ -183,6 +183,8 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Store currency symbol for use in JavaScript
+        const currencySymbol = '{{ $defaultCurrency->symbol ?? '$' }}';
         const searchInput = document.getElementById('productSearch');
         const categoryFilter = document.getElementById('categoryFilter');
         const brandFilter = document.getElementById('brandFilter');
@@ -323,7 +325,7 @@
                                 <td>${detail.size ? detail.size.name : 'N/A'}</td>
                                 <td>${detail.color || 'N/A'}</td>
                                 <td>${detail.quantity}</td>
-                                <td>$${parseFloat(detail.price).toFixed(2)}</td>
+                                <td>${currencySymbol}${parseFloat(detail.price).toFixed(2)}</td>
                             `;
                             variantsContainer.appendChild(row);
                         });
