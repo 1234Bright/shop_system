@@ -75,6 +75,15 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
+                                    <label for="quantity" class="form-label">Quantity <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" value="{{ old('quantity', 0) }}" min="0" required>
+                                    @error('quantity')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
                                     <label for="cost" class="form-label">Cost</label>
                                     <div class="input-group">
                                         <span class="input-group-text">$</span>

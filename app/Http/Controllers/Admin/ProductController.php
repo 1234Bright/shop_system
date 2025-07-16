@@ -45,6 +45,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'status' => 'required|in:active,inactive',
             'price' => 'required|numeric|min:0',
+            'quantity' => 'required|integer|min:0',
             'cost' => 'nullable|numeric|min:0',
         ]);
         
@@ -95,6 +96,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'status' => 'required|in:active,inactive',
             'price' => 'required|numeric|min:0',
+            'quantity' => 'required|integer|min:0',
             'cost' => 'nullable|numeric|min:0',
         ]);
         

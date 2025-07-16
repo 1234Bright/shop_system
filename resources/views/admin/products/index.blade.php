@@ -43,6 +43,7 @@
                             <th>Category</th>
                             <th>Brand</th>
                             <th>Price</th>
+                            <th>Quantity</th>
                             <th>Status</th>
                             <th style="width: 120px;">Actions</th>
                         </tr>
@@ -64,6 +65,7 @@
                             <td>{{ $product->category->name ?? 'N/A' }}</td>
                             <td>{{ $product->brand->name ?? 'N/A' }}</td>
                             <td>${{ number_format($product->price, 2) }}</td>
+                            <td>{{ number_format($product->quantity) }}</td>
                             <td>
                                 @if($product->status == 'active')
                                     <span class="badge bg-success">Active</span>

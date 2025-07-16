@@ -19,6 +19,7 @@ class Product extends Model
         'status',
         'price',
         'cost',
+        'quantity',
     ];
     
     protected static function boot()
