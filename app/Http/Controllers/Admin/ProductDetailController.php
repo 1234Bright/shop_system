@@ -12,6 +12,25 @@ use Illuminate\Support\Facades\Validator;
 class ProductDetailController extends Controller
 {
     /**
+     * Return product details in JSON format for AJAX requests.
+     *
+     * @param  int  $productId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getJson($productId)
+    {
+        $product = Product::with(['details.size'])->findOrFail($productId);
+        return response()->json([
+            'product' => [
+                'id' => $product->id,
+                'name' => $product->name,
+                'product_code' => $product->product_code,
+            ],
+            'details' => $product->details
+        ]);
+    }
+
+    /**
      * Display a listing of product details for a specific product.
      *
      * @param  int  $productId
