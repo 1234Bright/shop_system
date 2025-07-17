@@ -73,6 +73,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('settings', [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings.index');
     Route::post('settings', [\App\Http\Controllers\Admin\SettingsController::class, 'update'])->name('settings.update');
     
+    // Invoice management routes
+    Route::resource('invoices', \App\Http\Controllers\Admin\InvoiceController::class);
+    Route::get('invoices/{invoice}/print', [\App\Http\Controllers\Admin\InvoiceController::class, 'printInvoice'])->name('invoices.print');
+    Route::post('get-product-info', [\App\Http\Controllers\Admin\InvoiceController::class, 'getProductInfo'])->name('invoices.get-product-info');
+    Route::get('get-product-variants/{productId}', [\App\Http\Controllers\Admin\InvoiceController::class, 'getProductVariants'])->name('invoices.get-product-variants');
+    
     // Product details management routes (nested)
     Route::get('products/{product}/details', [\App\Http\Controllers\Admin\ProductDetailController::class, 'index'])->name('products.details.index');
     Route::get('products/{product}/details/create', [\App\Http\Controllers\Admin\ProductDetailController::class, 'create'])->name('products.details.create');

@@ -57,6 +57,19 @@
                     </div>
                     <span class="ms-2">Products</span>
                 </a>
+                
+                <a href="{{ route('admin.invoices.index') }}" class="menu-item d-flex align-items-center mb-3">
+                    <div class="icon-box d-flex align-items-center justify-content-center">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 9H9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="ms-2">Invoices</span>
+                </a>
                 <a href="#" class="menu-item d-flex align-items-center mb-3">
                     <div class="icon-box d-flex align-items-center justify-content-center">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -216,6 +229,9 @@
                         <i class="fas fa-bell"></i>
                         <span class="badge notification-badge">2</span>
                     </div>
+                    <a href="{{ route('admin.settings.index') }}" class="icon-button mx-2" title="System Settings">
+                        <i class="fas fa-cogs"></i>
+                    </a>
                     
                     <div class="user-dropdown dropdown ms-3">
                         <div class="d-flex align-items-center" role="button" id="userDropdown" data-bs-toggle="dropdown">
@@ -230,7 +246,7 @@
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> Profile</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
+                            <li><a class="dropdown-item" href="{{ route('admin.settings.index') }}"><i class="fas fa-cog me-2"></i> Settings</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="post">
